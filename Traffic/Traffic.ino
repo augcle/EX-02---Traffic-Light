@@ -1,3 +1,4 @@
+// This is used to define a shorthand for our pins and times. RPIN = Red Pin.
 #define RPIN 11
 #define YPIN 12
 #define GPIN 13
@@ -5,40 +6,38 @@
 #define Ltime 1500
 
 void setup() {
-  // put your setup code here, to run once:
-  char state;
+  Serial.begin(115200); // Used for communication
 
-  Serial.begin(115200);
-
+  // We enable the pins as output.
   pinMode(RPIN, OUTPUT);
   pinMode(YPIN, OUTPUT);
   pinMode(GPIN, OUTPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  // Set all pins to low
   digitalWrite(RPIN, LOW);
   digitalWrite(YPIN, LOW);
   digitalWrite(GPIN, LOW);
 
-  // Rød
+  // Red light
   digitalWrite(RPIN, HIGH);
   Serial.println("STOP");
   delay(Stime*2);
 
-  // Rød og Gul
+  // Red and yellow
   digitalWrite(YPIN, HIGH);
   Serial.println("READY");
   delay(Stime);
 
-  // Grønt signal
+  // Green light
   digitalWrite(RPIN, LOW);
   digitalWrite(YPIN, LOW);
   digitalWrite(GPIN, HIGH);
   Serial.println("GO");
   delay(Stime*2);
 
-  // Gul
+  // Yellow light
   digitalWrite(GPIN, LOW);
   digitalWrite(YPIN, HIGH);
   Serial.println("SLOW DOWN");

@@ -1,22 +1,23 @@
+// This is used to define a shorthand for our pins. RPIN = Red Pin.
 #define RPIN 11
 #define YPIN 12
 #define GPIN 13
 
 void setup() {
+  // We enable the pins as output.
   pinMode(RPIN, OUTPUT);
   pinMode(YPIN, OUTPUT);
   pinMode(GPIN, OUTPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
   for(int i = 0; i<8; i++) {
-    switch (i) {
+    switch (i) { // Based on the value of i, different light-configurations will be showed.
      case 0:
       digitalWrite(RPIN, LOW);
       digitalWrite(YPIN, LOW);
       digitalWrite(GPIN, LOW);
-      delay(1000);
+      delay(1000); // We have 1 second delays between the for loop counting up.
       break;
     case 1:
       digitalWrite(RPIN, LOW);
